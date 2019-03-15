@@ -1,0 +1,28 @@
+package edu.autocar.domain;
+
+import java.util.Date;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Board {
+	private int boardId;
+	private String title;
+	private String writer;
+	private String password;
+	private String content;
+	private int readCnt;
+	private Date regDate;
+	private Date updateDate;
+	
+	public Board(int boardId) {
+		super();
+		this.boardId = boardId;
+		title = "제목" + boardId;
+		
+	}
+}

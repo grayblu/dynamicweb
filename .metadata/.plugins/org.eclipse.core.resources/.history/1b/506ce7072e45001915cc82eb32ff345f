@@ -1,0 +1,6 @@
+package spring_test.dao;
+
+public interface ArticleDao {
+	void insert(Article article);
+	Article selectOne(ind id);
+}

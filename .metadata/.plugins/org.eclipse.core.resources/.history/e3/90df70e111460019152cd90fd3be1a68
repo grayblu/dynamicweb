@@ -1,0 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		// 삭제 진행 버튼
+		$('.password-panel').submit(function(e) {
+			e.preventDefault();
+			var result = confirm("삭제할까요?");
+			if(result) {
+				// ajax로 삭제
+				deleteBoard(${board.boardId}, $(':password').val());
+			}
+		});
+	});
+	function deleteBoard(boardId, password){
+		$.ajax({
+			// \${boardId}에서 '\'는 jsp의 ul과 구분짓기 위해 사용 => js 표현으로 사용하기 위함 
+			url : `../delete/\${boardId}?password=\${password}`,
+			type : 'delete',
+			dataType : 'json', // 서버가 리턴해야하는 데이터 타입 
+			cache : false,
+			success : function(data) {
+				if(data.result == 'success') {
+					location = '../list'; 
+				} else { 
+					alert(data.result); 
+				} 
+			},
+			error : function(xhr, statusText, errorThrown) {
+				console.log(`\${statusText} - \${xhr.status} , \$errorThrown`);
+			}
+		});
+	}
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

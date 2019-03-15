@@ -1,0 +1,7 @@
+package spring_test.service;
+
+public interface ArticleService {
+	void insert(Article article);
+	Article selectOne(int id);
+	
+}

@@ -1,0 +1,42 @@
+
+3월 08, 2019 14:29:49.23 NEW SESSION
+3월 08, 2019 14:29:49.23 [6524:5620:0308/142949.234:ERROR:browser_process_sub_thread.cc(209)] Waited 52 ms for network service
+3월 08, 2019 14:30:46.16 [1400:5696:0308/143046.163:ERROR:browser_process_sub_thread.cc(209)] Waited 111 ms for network service
+3월 08, 2019 14:31:48.34 [2128:3356:0308/143148.348:ERROR:connection_factory_impl.cc(411)] Failed to connect to MCS endpoint with error -118
+3월 08, 2019 14:33:42.53 [2128:3356:0308/143342.539:ERROR:browser_process_sub_thread.cc(209)] Waited 53 ms for network service
+3월 08, 2019 14:49:01.10 [6900:5484:0308/144901.107:ERROR:browser_process_sub_thread.cc(209)] Waited 68 ms for network service
+3월 08, 2019 15:00:29.31 [6664:3332:0308/150029.318:ERROR:connection_factory_impl.cc(411)] Failed to connect to MCS endpoint with error -118
+3월 08, 2019 15:29:41.76 [6664:3332:0308/152941.766:ERROR:browser_process_sub_thread.cc(209)] Waited 39 ms for network service
+3월 08, 2019 15:32:20.49 [6820:6552:0308/153220.495:ERROR:browser_process_sub_thread.cc(209)] Waited 103 ms for network service
+3월 08, 2019 15:38:51.19 [5312:3452:0308/153851.198:ERROR:browser_process_sub_thread.cc(209)] Waited 106 ms for network service
+3월 08, 2019 15:39:31.45 [5164:1084:0308/153931.452:ERROR:browser_process_sub_thread.cc(209)] Waited 75 ms for network service
+3월 08, 2019 15:39:56.49 [3716:3556:0308/153956.481:ERROR:browser_process_sub_thread.cc(209)] Waited 105 ms for network service
+3월 08, 2019 15:53:18.21 [5792:5844:0308/155318.217:ERROR:connection_factory_impl.cc(411)] Failed to connect to MCS endpoint with error -118
+3월 08, 2019 16:00:24.77 [5792:5844:0308/160024.775:ERROR:browser_process_sub_thread.cc(209)] Waited 114 ms for network service
+3월 08, 2019 16:10:30.50 [6428:5472:0308/161030.504:ERROR:connection_factory_impl.cc(411)] Failed to connect to MCS endpoint with error -118
+
+3월 11, 2019 09:09:08.04 NEW SESSION
+3월 11, 2019 09:09:08.04 [4804:3536:0311/090908.043:ERROR:browser_process_sub_thread.cc(209)] Waited 109 ms for network service
+3월 11, 2019 09:09:41.18 [5580:5684:0311/090941.182:ERROR:browser_process_sub_thread.cc(209)] Waited 87 ms for network service
+3월 11, 2019 09:11:42.93 [5564:6112:0311/091142.934:ERROR:browser_process_sub_thread.cc(209)] Waited 58 ms for network service
+3월 11, 2019 09:16:21.26 [5916:5112:0311/091621.262:ERROR:connection_factory_impl.cc(411)] Failed to connect to MCS endpoint with error -118
+3월 11, 2019 09:39:31.69 [5916:5112:0311/093931.697:ERROR:browser_process_sub_thread.cc(209)] Waited 94 ms for network service
+3월 11, 2019 09:42:09.29 [3872:6852:0311/094209.296:ERROR:browser_process_sub_thread.cc(209)] Waited 156 ms for network service
+3월 11, 2019 09:52:58.77 [1288:7152:0311/095258.775:ERROR:browser_process_sub_thread.cc(209)] Waited 87 ms for network service
+3월 11, 2019 09:53:51.75 [5672:864:0311/095351.755:ERROR:connection_factory_impl.cc(411)] Failed to connect to MCS endpoint with error -118
+3월 11, 2019 10:14:04.26 [5672:864:0311/101404.264:ERROR:browser_process_sub_thread.cc(209)] Waited 125 ms for network service
+3월 11, 2019 10:14:49.67 [6396:2624:0311/101449.678:ERROR:browser_process_sub_thread.cc(209)] Waited 94 ms for network service
+3월 11, 2019 10:20:05.68 [3928:6744:0311/102005.684:ERROR:connection_factory_impl.cc(411)] Failed to connect to MCS endpoint with error -118
+3월 11, 2019 10:20:06.01 [3928:6744:0311/102006.016:ERROR:browser_process_sub_thread.cc(209)] Waited 76 ms for network service
+3월 11, 2019 10:20:51.89 [6388:5816:0311/102051.896:ERROR:connection_factory_impl.cc(411)] Failed to connect to MCS endpoint with error -118
+3월 11, 2019 17:56:03.43 [6388:5816:0311/175603.438:ERROR:browser_process_sub_thread.cc(209)] Waited 126 ms for network service
+
+3월 13, 2019 09:38:30.69 NEW SESSION
+3월 13, 2019 09:38:30.69 [3900:4784:0313/093830.687:ERROR:browser_process_sub_thread.cc(209)] Waited 128 ms for network service
+3월 13, 2019 09:52:13.02 [3992:5732:0313/095213.028:ERROR:browser_process_sub_thread.cc(209)] Waited 112 ms for network service
+
+3월 14, 2019 13:45:58.75 NEW SESSION
+3월 14, 2019 13:45:58.75 [5856:5468:0314/134558.758:ERROR:connection_factory_impl.cc(411)] Failed to connect to MCS endpoint with error -118
+
+3월 15, 2019 08:54:31.83 NEW SESSION
+3월 15, 2019 08:54:31.83 [3952:4536:0315/085431.838:ERROR:browser_process_sub_thread.cc(209)] Waited 158 ms for network service

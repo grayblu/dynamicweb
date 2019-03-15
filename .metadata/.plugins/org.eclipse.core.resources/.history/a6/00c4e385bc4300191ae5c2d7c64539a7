@@ -1,0 +1,9 @@
+package unit04.service;
+
+import java.util.List;
+
+public interface MemberSerivce {
+	List<Member> getPage(int page);
+	int getTotalPage();
+	int getTotalCount();
+}

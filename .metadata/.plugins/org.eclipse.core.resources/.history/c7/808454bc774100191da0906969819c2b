@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%
+String error = (String)request.getAttribute("error");
+if(error==null) error = "";
+String reason = (String)request.getAttribute("reason");
+if(reason==null) reason= "";
+String target = (String)request.getAttribute("target");
+if(target==null) target= "";
+
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="login" method="post">
+		<input type="hidden" name="target" value="<%=target %>">
+		<label for="userid"> 아이디: </label>
+		<input type="text" name="id" id="userid"><br>
+		<label for="userpwd"> 암 &nbsp; 호 : </label>
+		<input type="password" name="pwd" id="userpwd"><br>
+		<input type="submit" value="로그인">
+	</form>
+	
+	<div class="error"><%=error%></div>
+	<div class="reason"><%=reason%></div>
+	
+	
+	
+</body>
+</html>

@@ -1,0 +1,28 @@
+package spring_test.app;
+
+import spring_test.domain.Article;
+import spring_test.service.ArticleService;
+import spring_test.service.ArticleServiceImpl;
+
+public class AppMain {
+	ArticleService service;
+	
+	public AppMain() {
+		service = new ArticleServiceImpl();
+	}
+	
+	public void run() {
+		Article article = new Article("테스트", "테스트 내용");
+		service.insert(article);
+		
+		Article article2 = service.selectOne(100);
+		System.out.println(article2);
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		AppMain app = new AppMain();
+		app.run();
+	}
+
+}

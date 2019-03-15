@@ -1,0 +1,5 @@
+package spring_test.dao;
+
+public interface ArticleDao {
+
+}

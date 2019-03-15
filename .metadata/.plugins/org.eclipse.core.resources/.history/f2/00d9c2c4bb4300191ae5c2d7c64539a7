@@ -1,0 +1,16 @@
+package unit04.service;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class MemberServiceImpl implements MemberSerivce {
+	public List<Member> memberList;
+	
+	public MemberServiceImpl() {
+		memberList = Collections.synchronizedCollection(new ArrayList<>());
+		for(int i=1; i<45; i++) {
+			memberList.add(new Member("hong"+i, "1234", "홍"+i, "hong"+i+"@gmail.com", "010", "M"));
+		}
+	}
+}

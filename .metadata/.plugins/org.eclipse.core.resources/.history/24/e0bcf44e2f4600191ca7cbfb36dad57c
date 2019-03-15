@@ -1,0 +1,117 @@
+package edu.autocar.service;
+
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import edu.autocar.dao.BoardDao;
+import edu.autocar.domain.Board;
+import edu.autocar.domain.PageInfo;
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@Slf4j
+@Repository
+public class BoardServiceImpl implements BoardService {
+	private List<Board> boardList;
+	final static private int PER_PAGE_COUNT = 10;
+	int maxId = 0;
+	
+	@Autowired
+	BoardDao dao;
+	
+	
+	public BoardServiceImpl() {
+		// TODO Auto-generated constructor stub
+		boardList = Collections.synchronizedList(new LinkedList<>());
+		for(maxId=1;maxId<=45;maxId++) {
+			boardList.add(0, new Board(maxId));
+		}
+	}
+
+	@Override
+	public PageInfo<Board> getPage(int page) throws Exception {
+		// TODO Auto-generated method stub
+		
+		int start = (page-1)*PER_PAGE_COUNT;
+		int end = start + PER_PAGE_COUNT;
+		
+		int totalCount = dao.count();
+		List<Board> list = dao.getPage(start, end);
+		
+/*		if(end > boardList.size()) {
+			end = boardList.size();
+		}
+		
+		for (int i =start ; i < end; i++) {
+			list.add(boardList.get(i));
+		}
+*/		return new PageInfo<>(boardList.size(),
+				(int)Math.ceil(boardList.size()/(double)PER_PAGE_COUNT), 
+				page, PER_PAGE_COUNT, list);
+
+	}
+
+	@Override
+	@Transactional
+	public Board getBoard(int boardId) throws Exception {
+		// TODO Auto-generated method stub
+		dao.increaseReadCnt(boardId);
+		return dao.findById(boardId);
+/*		for(Board board : boardList) {
+			if(board.getBoardId() == boardId) {
+				// 조회수 증가
+				int cnt = board.getReadCnt();
+				board.setReadCnt(cnt+1);
+				
+				return board;
+			}
+		}
+		return null;
+*/	}
+	@Transactional
+	@Override
+	public void create(Board board) throws Exception {
+		// TODO Auto-generated method stub
+		dao.insert(board);
+/*		board.setBoardId(maxId);
+		board.setRegDate(new Date());
+		board.setUpdateDate(new Date());
+		maxId++;
+		boardList.add(0, board);
+*/	}
+	
+	@Transactional
+	@Override
+	public boolean update(Board board) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.update(board)==1;
+	}
+
+	@Override
+	public boolean delete(int boardId, String password) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.delete(boardId, password) == 1;
+		
+		
+/*		for(int ix=0; ix<boardList.size();ix++) {
+			Board board = boardList.get(ix);
+			if(board.getBoardId() == boardId) {
+				if(board.getPassword().contentEquals(password)) {
+					boardList.remove(ix);
+					return true;
+				}else {
+					return false;
+				}
+			}
+		}
+		return false;
+*/
+	}
+
+}

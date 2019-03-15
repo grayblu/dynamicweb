@@ -1,0 +1,5 @@
+package spring_test.config;
+
+public class AppConfig {
+
+}

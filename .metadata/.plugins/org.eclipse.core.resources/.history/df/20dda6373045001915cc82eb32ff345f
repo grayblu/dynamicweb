@@ -1,0 +1,25 @@
+package spring_test.service;
+
+import spring_test.dao.ArticleDao;
+import spring_test.dao.ArticleDaoImpl;
+import spring_test.domain.Article;
+
+public class ArticleServiceImpl {
+	ArticleDao dao;
+
+	public ArticleServiceImpl() {
+		this.dao = new ArticleDaoImpl(); // 요구사항 변경시 코드 수정 발생 
+	}
+	
+
+	public void insert(Article article) {
+		System.out.println("> Article Service : 글 저장");
+		dao.insert(article);
+	}
+
+
+	public Article selectOne(int id) {
+		System.out.println("> Article Service : 글 추출");
+		return dao.selectOne(id);
+	}
+}

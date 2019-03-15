@@ -1,0 +1,26 @@
+package spring_test.app;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
+
+import spring_test.config.AppConfig;
+import spring_test.service.ArticleService;
+
+public class AppMain2 {
+
+	public static void main(String[] args) {
+		GenericApplicationContext ctx = new AnnotationConfigApplicationContext(
+												AppConfig.class);
+		ArticleService s1 = ctx.getBean(ArticleService.class);
+		ArticleService s2 = ctx.getBean(ArticleService.class);
+		if(s1 == s2) {
+			System.out.println("동일 객체, 싱글톤");
+		}else {
+			System.out.println("동일 객체가 아님");
+		}
+		
+		
+
+	}
+
+}

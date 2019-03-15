@@ -1,0 +1,16 @@
+package spring_test.dao;
+
+import spring_test.domain.Article;
+
+public class ArticleDaoImpl implements ArticleDao {
+	@Override
+	public void insert(Article article) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Article selectOne(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

@@ -1,0 +1,5 @@
+package edu.autocar.start.config;
+
+public class DatabaseConfig {
+
+}
