@@ -27,8 +27,10 @@
 			value="/WEB-INF/views/{1}/{2}.jsp" />
 	</definition>
 	<!-- 회원 관리 기본 뷰의 경로가 admin/member이므로 3레벨로 구성 예)회원 현황 확인할 경우 admin/member/list -->
-	<definition name="*/*/*" extends="default">
-		<put-attribute name="body"
-			value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+	<definition name="admin/*/*" extends="default"
+		template="/WEB-INF/views/layouts/admin_template.jsp">
+		<put-attribute name="admin-menu"
+			value="/WEB-INF/views/layouts/admin/admin-menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/admin/{1}/{2}.jsp" />
 	</definition>
 </tiles-definitions>

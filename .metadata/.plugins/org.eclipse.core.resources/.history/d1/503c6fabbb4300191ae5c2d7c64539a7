@@ -1,8 +1,0 @@
-package unit04.service;
-
-import java.util.List;
-
-public class MemberServiceImpl implements MemberSerivce {
-	public List<Member> memberList;
-	
-}

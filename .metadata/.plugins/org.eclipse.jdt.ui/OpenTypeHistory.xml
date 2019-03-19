@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
 <typeInfo handle="=JspEx02/C:\/Program Files\/ojdkbuild\/java-1.8.0-openjdk-1.8.0.201-1\/jre\/lib\/rt.jar&lt;java.lang.reflect(Member.class[Member" modifiers="1537" timestamp="1548284506000"/>
-<typeInfo handle="=JspEx02/src&lt;controller{Controller.java[Controller" modifiers="513" timestamp="1552436680385"/>
+<typeInfo handle="=JspEx02/src&lt;controller{Controller.java[Controller" modifiers="513" timestamp="1552641746826"/>
 <typeInfo handle="=start/C:\/Users\/student\/.m2\/repository\/org\/springframework\/spring-webmvc\/5.1.0.RELEASE\/spring-webmvc-5.1.0.RELEASE.jar&lt;org.springframework.web.servlet.config.annotation(WebMvcConfigurer.class[WebMvcConfigurer" modifiers="1537" timestamp="1552450570531"/>
-<typeInfo handle="=tour/src\/main\/java&lt;edu.autocar.service{BoardService.java[BoardService" modifiers="513" timestamp="1552456727675"/>
-<typeInfo handle="=tour/src\/main\/java&lt;edu.autocar.dao{CrudDao.java[CrudDao" modifiers="513" timestamp="1552547409665"/>
+<typeInfo handle="=tour/src\/main\/java&lt;edu.autocar.service{BoardService.java[BoardService" modifiers="513" timestamp="1552641746920"/>
+<typeInfo handle="=tour/src\/main\/java&lt;edu.autocar.dao{CrudDao.java[CrudDao" modifiers="513" timestamp="1552641746920"/>
 </typeInfoHistroy>

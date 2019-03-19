@@ -4,6 +4,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="fmt" %>
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<script src="${contextPath}/resources/js/member.js"></script>
+<script>
+
+	$('.id-check').checkUserId(); // 사용자 ID 중복 체크 플러그인
+	$('#member').checkPassword(); // 비밀번호 일치 체크 플러그인
+</script>
 <!--  스프링이 제공하는 태그라이브러리에 의해 커맨드 객체(member)와 폼 요소간 동기화가 이뤄짐 -->
 <h2 class="my-5">
 	<i class="fas fa-edit"></i> 회원 가입
@@ -11,7 +18,13 @@
 <form:form modelAttribute="member">
 <!-- <form id="member" action="/tour/board/create" method="post">을 의미함 -->
 	<div class="form-group">
-		<label for="userId">아이디</label>
+		<label for="userId">사용자 ID
+		<button type="button"
+		class="btn btn-primary btn-sm id-check">
+			<i class="fas fa-user-check"></i>
+			중복 체크</button>
+			<span id="message"></span>
+		</label>
 		<form:input path="userId" class="form-control" />
 		<form:errors path="userId" element="div" cssClass="error" />
 	</div>
@@ -20,10 +33,21 @@
 		<form:password path="password" class="form-control" />
 		<form:errors path="password" element="div" cssClass="error" />
 	</div>
+	<!-- 비번 확인을 확인 라벨 추가-->
+	<div class="form-group">
+		<label for="password2">비밀번호 확인</label> <input type="password"
+			id="password2" class="form-control" />
+	</div>
 	<div class="form-group">
 		<label for="name">이름</label>
 		<form:input path="name" class="form-control" />
 		<form:errors path="name" element="div" cssClass="error" />
+	</div>
+	<!-- for each를 통해 배열에 해당하는 값을 items에 의해 꺼냄 -->
+	<div class="form-group">
+		<label for="userLevel">사용자 레벨</label>
+		<form:select path="userLevel" class="form-control"
+			items="${userLevels}" itemLabel="label" itemValue="value" />
 	</div>
 	<div class="form-group">
 		<label for="email">이메일</label>
@@ -40,7 +64,7 @@
 	</div>
 	
 	<div class="text-center">
-		<button type="submit" class="btn btn-primary ok">
+		<button type="submit" class="btn btn-primary" disabled="disabled">
 			<i class="fas fa-check"></i> 완료
 		</button>
 		<button>

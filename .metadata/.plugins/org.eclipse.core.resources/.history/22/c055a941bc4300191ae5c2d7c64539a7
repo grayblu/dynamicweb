@@ -1,6 +1,0 @@
-package unit04.service;
-
-public interface MemberSerivce {
-	
-	
-}

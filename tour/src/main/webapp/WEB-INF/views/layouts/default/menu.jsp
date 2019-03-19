@@ -23,12 +23,22 @@
 			</a></li>
 		</ul>
 		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="#"> <i
+		<c:if test="${empty USER}">
+			<li class="nav-item"><a class="nav-link" href="${contextPath}/join"> <i
 					class="fas fa-user-plus"></i> 회원가입
 			</a></li>
-			<li class="nav-item"><a class="nav-link" href="#"> <i
+			<li class="nav-item"><a class="nav-link" href="${contextPath}/login"> <i
 					class="fas fa-sign-in-alt"></i> 로그인
 			</a></li>
+		</c:if>
+		<c:if test="${not empty USER}">
+			<li class="nav-item"><a class="nav-link" href="${contextPath}/member/view"> <i
+					class="fas fa-user-plus"></i> ${USER.userId}
+			</a></li>
+			<li class="nav-item"><a class="nav-link" href="${contextPath}/logout"> <i
+					class="fas fa-sign-in-alt"></i> 로그아웃
+			</a></li>
+		</c:if>
 		</ul>
 	</div>
 </nav>

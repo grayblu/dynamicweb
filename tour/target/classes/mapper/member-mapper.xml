@@ -31,6 +31,26 @@
 		values(#{userId},#{password},
 			#{name},#{email},#{phone},#{address},sysdate,sysdate)
 	</insert>
+	
+	<update id="update" parameterType="Member">
+		UPDATE member SET
+		email = #{email},
+		phone = #{phone},
+		address = #{address}
+		WHERE user_id=#{userId} and password = #{password}
+		
+	</update>
+	<update id="updateByAdmin" parameterType="Member">
+		UPDATE member SET
+			user_level = #{userLevel},
+			email = #{email},
+			phone = #{phone},
+			address = #{address}
+		WHERE user_id=#{userId}
+	</update>
+		<delete id="delete">
+			DELETE FROM MEMBER WHERE user_id=#{userId}
+		</delete>
 </mapper>
 	
 	
