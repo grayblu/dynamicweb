@@ -7,9 +7,10 @@
 
 <script src="${contextPath}/resources/js/member.js"></script>
 <script>
-
-	$('.id-check').checkUserId(); // 사용자 ID 중복 체크 플러그인
-	$('#member').checkPassword(); // 비밀번호 일치 체크 플러그인
+$(function(){
+	$('.id-check').checkUserId() // 사용자 ID 중복 체크 플러그인
+	$('#member').checkPassword() // 비밀번호 일치 체크 플러그인
+})
 </script>
 <!--  스프링이 제공하는 태그라이브러리에 의해 커맨드 객체(member)와 폼 요소간 동기화가 이뤄짐 -->
 <h2 class="my-5">
@@ -47,7 +48,7 @@
 	<div class="form-group">
 		<label for="userLevel">사용자 레벨</label>
 		<form:select path="userLevel" class="form-control"
-			items="${userLevels}" itemLabel="label" itemValue="value" />
+			items="${userLevels}" />
 	</div>
 	<div class="form-group">
 		<label for="email">이메일</label>
@@ -64,14 +65,12 @@
 	</div>
 	
 	<div class="text-center">
-		<button type="submit" class="btn btn-primary" disabled="disabled">
+		<button type="submit" class="btn btn-primary" disabled>
 			<i class="fas fa-check"></i> 완료
 		</button>
-		<button>
 			<a href="list?page=${param.page}" class="btn btn-primary back">
 			<i class="fas fa-undo"></i> 목록
 			</a>
-		</button>
 	</div>
 </form:form>
 

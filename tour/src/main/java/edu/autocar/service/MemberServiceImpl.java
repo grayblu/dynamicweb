@@ -6,13 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.autcar.util.SHA256Util;
 import edu.autocar.dao.MemberDao;
 import edu.autocar.domain.Member;
 import edu.autocar.domain.PageInfo;
-import lombok.extern.slf4j.Slf4j;
+import edu.autocar.util.SHA256Util;
 
-@Slf4j
+
 @Repository	// SQL에러를 처리해 주기 때문에 해당 어노테이션을 사용하여 bean 객체 등록
 public class MemberServiceImpl implements MemberService {
 	
@@ -20,10 +19,7 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Autowired
 	MemberDao dao;
-	
-/*	//	싱글톤 패턴
-	static private MemberService service = new MemberServiceImpl();
-*/	
+
 	
 	
 //	***	페이지네이션 ***

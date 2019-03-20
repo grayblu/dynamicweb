@@ -1,7 +1,7 @@
 /**
  * 
  */
-
+// 사용자 ID 중복 체크 플러그인
 $.fn.checkUserId = function(){
 	var self = this;	// this: button
 	var idInput = this.closest('.form-group')
@@ -25,17 +25,17 @@ $.fn.checkUserId = function(){
 				submitBtn.prop('disabled', true); // submit버튼 비활성화
 			}
 		});
-		// 사용자 ID가 변경된 경우
-		// submit 버튼 비활성화
-		idInput.change(function(){
-			msgSpan.html('ID 중복 체크를 해야합니다.').removeClass('error');
-			submitBtn.prop('disabled', true); // submit 버튼 비활성화
-			self.prop('disabled', false); // ID 체크 버튼 활성화
-			
-		});
+	});
+	// 사용자 ID가 변경된 경우
+	// submit 버튼 비활성화
+	idInput.change(function(){
+		msgSpan.html('ID 중복 체크를 해야합니다.').removeClass('error');
+		submitBtn.prop('disabled', true); // submit 버튼 비활성화
+		self.prop('disabled', false); // ID 체크 버튼 활성화
+		
 	});
 	
-};
+}
 
 // 비번 체크 플러그인
 // this: form
@@ -47,9 +47,9 @@ $.fn.checkPassword = function(pass1='#password', pass2='#password2'){
 		var password2 = $(pass2).val();
 		
 		if(password1 == password2) {
-		this.submit();
+			this.submit();
 		} else {
-		alert('비밀번호가 일치하지 않습니다.');
+			alert('비밀번호가 일치하지 않습니다.');
 		}
 	});
 };

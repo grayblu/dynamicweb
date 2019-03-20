@@ -1,4 +1,4 @@
-package edu.autcar.util;
+package edu.autocar.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
