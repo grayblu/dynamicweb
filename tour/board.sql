@@ -34,3 +34,35 @@ insert into member(user_id, password, name, salt,
 			'골드', 'hyunholee@gmail.com', 010, '서울 강남구');
 
 
+create table avata(
+	user_id varchar(20) primary key,
+	image blob
+
+);
+
+DROP TABLE POST;
+DROP TABLE BLOG;
+CREATE TABLE BLOG(
+	
+	board_id NUMBER PRIMARY KEY,
+	owner VARCHAR2(50),
+	title VARCHAR2(256 CHAR),
+	description VARCHAR2(512 CHAR),
+	good_cnt NUMBER,
+	reg_date DATE DEFAULT SYSDATE,
+	update_date DATE DEFAULT SYSDATE
+);
+
+CREATE SEQUENCE BLOG_SEQ;
+
+
+CREATE TABLE POST(
+	post_id NUMBER PRIMARY KEY,
+	blog_id NUMBER REFERENCES BLOG(blog_id),
+	title VARCHAR2(256 CHAR),
+	description VARCHAR2(512 CHAR),
+	good_cnt NUMBER,
+	reg_date DATE DEFAULT SYSDATE,
+	update_date DATE DEFAULT SYSDATE
+);
+CREATE SEQUENCE IMAGE_SEQ;

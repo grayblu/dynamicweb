@@ -18,7 +18,11 @@ $(function(){
 		<h2 class="my-5 text-primary">
 			<i class="fas fa-user"></i> 사용자 정보
 		</h2>
-		<div class="my-1">사용자 ID : ${member.userId}</div>
+		<div class="my-1">사용자 ID :
+			<img src="${contextPath}/member/avtar/${member.userId}"
+				class="rounded-circle avata-sm">
+		 	${member.userId}
+		 </div>
 		<div class="my-1">이름 : ${member.name}</div>
 		<div class="my-1">사용자 레벨 : ${member.userLevel}</div>
 		<div class="my-1">email : ${member.email}</div>

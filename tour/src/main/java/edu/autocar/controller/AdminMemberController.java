@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import edu.autocar.domain.Member;
 import edu.autocar.domain.PageInfo;
 import edu.autocar.domain.ResultMsg;
 import edu.autocar.domain.UserLevel;
 import edu.autocar.service.MemberService;
-import lombok.extern.slf4j.Slf4j;
 
 
 @Controller
@@ -58,14 +58,15 @@ public class AdminMemberController {
 	
 	@PostMapping("/create")
 	public String postCreate(@Valid Member member, BindingResult result,
-						Model model) throws Exception{
+			@RequestParam("avata") MultipartFile file,			
+			Model model) throws Exception{
 		
 		if(result.hasErrors()) {
 			model.addAttribute("userLevel", UserLevel.values());
 			return "admin/member/create";
 		}
 		
-		service.create(member);
+		service.create(member, file);
 		return "redirect:list";
 	}
 	
@@ -93,6 +94,7 @@ public class AdminMemberController {
 	@PostMapping("/edit/{userId}")
 	public String postEdit(@RequestParam(value = "page") int page,
 					@Valid Member member, BindingResult result,
+					@RequestParam("avata") MultipartFile file,
 					Model model) throws Exception {
 		
 		model.addAttribute("userLevels", UserLevel.values());
@@ -100,7 +102,7 @@ public class AdminMemberController {
 			return "admin/member/edit";
 		}
 
-		if (service.updateByAdmin(member)) {
+		if (service.updateByAdmin(member, file)) {
 			return "redirect:/admin/member/view/" + member.getUserId() +
 					"?page=" + page;
 		} else {

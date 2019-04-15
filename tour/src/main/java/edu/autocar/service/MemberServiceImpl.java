@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import edu.autocar.dao.MemberDao;
 import edu.autocar.domain.Member;
@@ -19,7 +20,7 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Autowired
 	MemberDao dao;
-
+	AvataService avataService;
 	
 	
 //	***	페이지네이션 ***
@@ -45,7 +46,7 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Transactional
 	@Override
-	public void create(Member member) throws Exception {
+	public void create(Member member, MultipartFile file) throws Exception {
 		// TODO Auto-generated method stub
 		// salt 생성 및 비번 암호화
 		String salt = SHA256Util.generateSalt();
@@ -54,13 +55,32 @@ public class MemberServiceImpl implements MemberService {
 		member.setSalt(salt);
 		member.setPassword(encPassword);
 		dao.insert(member);
+		avataService.create(member.getUserId(), file);
 	}
 	
 	@Transactional
 	@Override
-	public boolean updateByAdmin(Member member) throws Exception {
-	if(!checkAdminPassword(member.getPassword())) return false;
-	return dao.updateByAdmin(member)==1;
+	public boolean updateByAdmin(Member member, MultipartFile file) throws Exception {
+		if(!checkAdminPassword(member.getPassword())) return false;
+		
+		if(dao.updateByAdmin(member) != 1) return false;
+		
+		// 아바타 수정
+		avataService.update(member.getUserId(), file);
+		return true;
+	}
+	
+	@Transactional
+	@Override
+	public boolean update(Member member, MultipartFile file) throws Exception {
+		// TODO Auto-generated method stub
+		if (checkPassword(member.getUserId(), member.getPassword()) == null)
+			return false;
+		if (dao.update(member) == 0)
+			return false;
+
+		return avataService.update(member.getUserId(), file);
+		
 	}
 	
 	private boolean checkAdminPassword(String password) throws Exception{
@@ -86,11 +106,7 @@ public class MemberServiceImpl implements MemberService {
 		return null;
 	}
 	
-	@Override
-	public boolean update(Member member) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 	
 	@Transactional
 	@Override

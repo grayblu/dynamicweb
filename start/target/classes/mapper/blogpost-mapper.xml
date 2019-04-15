@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.autocar.dao.BlogPostDao">
+
+	<select id="getBlogPost" parameterType="String" resultType="BlogPost">
+		SELECT * 
+		FROM blogpost 
+		WHERE user_id=#{userId}
+		ORDER BY post_id DESC
+	</select>
+	
+	<select id="findById" parameterType="int" resultType="BlogPost"> 
+		SELECT * 
+		FROM blogpost 
+		WHERE post_id=#{postId}
+	</select>
+	
+	<insert id="insert" parameterType="BlogPost" useGeneratedKeys="true" keyColumn = "user_id" keyProperty="userId">
+		INSERT INTO blogpost (post_id, user_id, title, content)  
+		VALUES ( BLOGPOST_SEQ.NEXTVAL, #{userId}, #{title}, #{content})
+	</insert>
+	
+</mapper>
