@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<script
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script type="text/javascript" 
+src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=rbeyz68rf5">
+</script>
+</head>
+<script>
+
+var map = new naver.maps.Map('map', {
+	center: new naver.maps.LatLng(37.499953, 127.032606),
+	zoom: 11,
+	mapTypeId: naver.maps.MapTypeId.NORMAL,
+	zoomControl: true,
+	zoomControlOptions: {
+		style: naver.maps.ZoomControlStyle.SMALL
+	}
+});
+
+
+
+		
+naver.maps.Event.addListener(map, 'click', function(e){
+		console.log(e);
+		var marker = new naver.maps.marker({
+			position: new naver.maps.LatLng(e.coord),
+			map: map,
+		})
+		
+		setTimeout(function(){
+			marker.setMap(null);
+		},2000)
+		
+})
+	
+</script>
+
+<body>
+<div id="map" style="width:100%; height:400px;"></div>
+
+</body>
+
+
+
+
+</html>

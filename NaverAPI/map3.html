@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script type="text/javascript" 
+src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=rbeyz68rf5&submodules=geocoder"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+	$(function(){
+		naver.maps.Service.geocode(
+			{address: '역삼'},
+			function(status, response){
+				console.log(status, response)
+				if(status == naver.maps.Service.Status.ERROR){
+					return alert('Something worng!');
+				}
+				var result = response.result;	// 검색 결과의 컨테이너
+				items = result.items; // 검색 결과의 배열
+				
+				console.log(items);
+			}
+		)
+		
+		var map = new naver.maps.Map('map', {
+			center: new naver.maps.LatLng(items.point),
+			zoom: 10
+		})
+		
+		var marker = new naver.maps.Marker({
+			map: map,
+			position: cityhall
+		})
+
+	})
+</script>
+
+<div id="map" style="width:100%; height:400px;"></div>
+</body>
+</html>
