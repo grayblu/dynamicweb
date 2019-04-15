@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+ "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"  "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="default"
+		template="/WEB-INF/views/layouts/default_template.jsp">
+		<put-attribute name="header"
+			value="/WEB-INF/views/layouts/default/header.jsp" />
+		<put-attribute name="menu"
+			value="/WEB-INF/views/layouts/default/menu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/layouts/default/body.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/layouts/default/footer.jsp" />
+	</definition>
+
+	<definition name="*" extends="default">
+		<put-attribute name="body"
+			value="/WEB-INF/views/main.jsp" />
+	</definition>
+
+	<definition name="*/*" extends="default">
+		<put-attribute name="body"
+			value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+	
+
+
+	<definition name="admin/*/*" extends="default"
+		template="/WEB-INF/views/layouts/admin_template.jsp">
+		<put-attribute name="admin-menu"
+			value="/WEB-INF/views/layouts/admin/admin-menu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/{1}/{2}.jsp" />
+	</definition>
+	
+	<definition name="blogs/*/*" extends="default"
+		template="/WEB-INF/views/layouts/blog_template.jsp">
+		<put-attribute name="post_header"
+			value="/WEB-INF/views/layouts/blog/post_header.jsp" />
+		<put-attribute name="post_menu"
+			value="/WEB-INF/views/layouts/blog/post_menu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/blogs/{1}/{2}.jsp" />
+	</definition>
+	
+</tiles-definitions>
