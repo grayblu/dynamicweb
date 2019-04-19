@@ -30,7 +30,7 @@ $(function(){
 	var map = new naver.maps.Map('map', mapOptions);
 	var carMarker = new naver.maps.Marker({
 		map:map,
-		position: new naver.maps.LatLng(37.3595704, 127.1052133)
+		position: new naver.maps.LatLng(37.3595704, 127.106)
 	})
 	
 	// 소켓 생성
@@ -68,18 +68,29 @@ $(function(){
 		var msg = $('#send-message').val();
 		socket.send(msg);
 	})
+	
+	// shift 클릭 이벤트에 대한 소켓 통신
+	$('.direction').click(function(){
+		// 사용자 지정 속성(data-direction) 설정 가능 
+		direction = $(this).data('direction')
+		//console.log(direction)
+		msg = JSON.stringify({
+			msgType: 'CONTROL',
+			target: 1,
+			direction: direction
+		})
+		socket.send(msg)
+		
+	})
+	
 })
 </script>
+<h1>원격 조정</h1>
 <div id="map" style="width:100%; height:400px;"></div>
-<h1>웹 소켓 테스트</h1>
-
 <div>
-	전송 메시지:
-	<input type="text" id="send-message">
-	<button type="button" id="send-btn">전송</button>
-</div>
-<div>
-	수신 메시지: <span id="recv-message"></span>
+<button class="direction" data-direction="LEFT">
+	<i class="fas fa-arrow-alt-circle-left"></i>
+</button>
 </div>
 </body>
 </html>

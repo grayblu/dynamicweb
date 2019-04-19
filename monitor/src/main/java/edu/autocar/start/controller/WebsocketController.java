@@ -18,6 +18,10 @@ public class WebsocketController {
 		return "carMsg";
 	}
 	
-	
+	@GetMapping("/carMsg2")
+	public String carmessage2() {
+		
+		return "carMsg2";
+	}
 	
 }
