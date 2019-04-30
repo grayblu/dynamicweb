@@ -20,6 +20,7 @@ import edu.autocar.domain.Board;
 import edu.autocar.domain.PageInfo;
 import edu.autocar.domain.ResultMsg;
 import edu.autocar.service.BoardService;
+import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller

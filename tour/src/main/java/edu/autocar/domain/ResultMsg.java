@@ -22,7 +22,7 @@ public class ResultMsg {
 		HttpHeaders headers = new HttpHeaders();
 //		result가 한글인 경우 깨질 수 있기 때문에 해당 메서드 사용
 		headers.add("Content-Type", "application/json; charset=utf-8"); 
-		return new ResponseEntity<>(
+		return new ResponseEntity<ResultMsg>(
 				new ResultMsg(result, message),
 				headers, HttpStatus.OK);
 	}

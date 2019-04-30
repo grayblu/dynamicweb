@@ -11,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 @ComponentScan(basePackages= {"edu.autocar"})
 public class MvcConfig implements WebMvcConfigurer {
+	@Override
 	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
 		// css, js, 이미지 등의 정적 파일 배치 위치 등록 - 스프링이 처리 안함
 		registry.addResourceHandler("/resources/**") // 적용 경로

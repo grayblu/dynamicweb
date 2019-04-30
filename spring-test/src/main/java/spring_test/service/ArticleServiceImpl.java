@@ -21,12 +21,14 @@ public class ArticleServiceImpl implements ArticleService {
 		this.dao = dao;
 	}
 
+	@Override
 	public void insert(Article article) {
 		System.out.println("> Article Service : 글 저장");
 		dao.insert(article);
 	}
 
 
+	@Override
 	public Article selectOne(int id) {
 		System.out.println("> Article Service : 글 추출");
 		return dao.selectOne(id);

@@ -3,8 +3,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class SearchResult<T> {
 	String lastBuildDate;
 	int total; // ": 4637078,

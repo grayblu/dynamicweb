@@ -121,12 +121,14 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.6</version>
-			<scope>provided</scope>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.6</version>
+		    <scope>provided</scope>
 		</dependency>
+		
 		<!-- tiles 라이브러리 의존성 설정 -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>

@@ -15,6 +15,7 @@ import org.springframework.web.servlet.view.BeanNameViewResolver;
 @ComponentScan(basePackages = { "edu.autocar" })
 public class MvcConfig implements WebMvcConfigurer {
 
+	@Override
 	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
